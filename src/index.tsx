@@ -11,6 +11,7 @@ import MainPage from "./Pages/MainPage/MainPage";
 import CartInside from "./Components/CartInside/CartInside";
 import { AddToCartProvider } from "./Provider/AddToCartContext";
 import AdminPage from "./Pages/AdminPage/AdminPage";
+import AboutUs from "./Pages/AboutUs/AboutUs";
 
 
 const router = createBrowserRouter([
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
   {
     path: "/admin",
     element: <AdminPage />,
+  },
+  {
+    path:"/about-us",
+    element: <AboutUs/>,
   }
 ]);
 

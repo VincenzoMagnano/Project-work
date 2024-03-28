@@ -4,100 +4,42 @@ import Navbar from '../Navbar/Navbar'
 import { useAddToCart } from '../../Provider/AddToCartContext'
 import { Pokemon } from '../../types/Pokemon';
 
-const CartInside= () => {
-    const { cart, removeFromCart} = useAddToCart();  
-  
+const CartInside = () => {
+  const { cart, removeFromCart, handleCheckout, hystoryCart} = useAddToCart();
+
+
+
   ;
   return (
     <>
       <Navbar />
-      <div className="cart">
-        <table id="shopping-cart-table" className="table">
-          <caption>Prodotti nel carrello</caption>
-          <thead>
-            <tr>
-              <th className="col img" scope="col">
-                <span>Immagine</span>
-              </th>
-              <th className="col item" scope="col">
-                <span>Oggetto</span>
-              </th>
-              <th className="col qty" scope="col">
-                <span>Qta'</span>
-              </th>
-              <th className="col price" scope="col">
-                <span>Prezzo</span>
-              </th>
-              <th className="col subtotal" scope="col">
-                <span>Subtotale</span>
-              </th>
-            </tr>
-          </thead>
-
-          <tbody className="cart-item">
-            <tr className="item-info"></tr>
+      <h2 className='text-center m-5' style={{ fontSize: '30px', fontWeight: 'bold' }}>Cart</h2>
+      <div className="d-flex ">
+        <div className="d-flex">
+          <div className='d-flex justify-content-start flex-column border p-3 ' style={{ width: '800px' }}>
             {cart.map((pokemon, index) => (
-              <>
-                <tr key={index}>
-                  <td className="col image" style={{ width: "18rem" }}>
-                    <img
-                      height={200}
-                      src={pokemon.images.small}
-                      alt={pokemon.name}
-                    />
-                  </td>
-
-                  <td className="col name"> {pokemon.name}</td>
-                  {/*<td className="col qty" data-th="qtà">
-                    <div className="field-qty">
-                      <div className="control-qty">
-                        <label htmlFor={`cart-${index}`}>
-                          <input id={`cart-${index}`} type="number" />
-                        </label>
-                      </div>
-                    </div>
-                    {pokemon.qty}
-                  </td>*/}
-                  <td className="col price" data-th="prezzo">
-                    <span
-                      className="price-including-tax"
-                      data-label="tasse incl."
-                    >
-                      {pokemon.price} €
-                    </span>
-                  </td>
-                  <td className="col subtotal">
-                    <span
-                      className="price-including-tax"
-                      data-label="tasse incl."
-                    >
-                      {pokemon.subtotal} €
-                    </span>
-                  </td>
-                </tr>
-
-                <tr className="item-actions">
-                  <td colSpan={5}>
-                    <div className="actions-toolbar">
-                      <div
-                        id="gift-options-cart-item-3118698"
-                        data-bind="scope:'giftOptionsCartItem-3118698'"
-                        className="gift-options-cart-item"
-                      ></div>
-                      <a className="action-edit">
-                        <span>Modifica</span>
-                      </a>
-
-                      <button onClick={() => removeFromCart(index)} className="btn btn-danger">
-                        Remove
-                    </button>
-                    </div>
-                  </td>
-                </tr>
-              </>
+              <div key={index} className='d-flex align-items-center border p-5 justify-content-center'>
+                <h1 className="mx-5 p-3" style={{ fontSize: '20px' }}>{pokemon.name}</h1>
+                <img className='mx-5' src={pokemon.images.small} alt={pokemon.name} style={{ width: '100px' }} />
+                <button onClick={() => removeFromCart(index)} className="btn btn-danger mx-5">
+                  Remove
+                </button>
+              </div>
             ))}
-          </tbody>
-        </table>
+          </div>
+          <div className='border mx-3 d-flex flex-column  justify-content-center' style={{ width: '600px', height: '300px' }}>
+            <div className='border d-flex justify-content-start p-5'>
+              <h2 className='text-center m-2' style={{ fontSize: '20px', fontWeight: 'bold' }}>Riepilogo</h2>
+            </div>
+            <div>
+              <h2 className='text-center border rounded bg-body-tertiary p-2' style={{ fontSize: '24px', fontWeight: 'bold' }}>Totale:{cart.length}€ </h2>
+            </div>
+            <button onClick={() => handleCheckout()} className='btn btn-primary'>Checkout</button>
+              <div>
+                <h5>Hai acquistato {hystoryCart.length}</h5>
+              </div>
+          </div>
+        </div>
       </div>
     </>
   );

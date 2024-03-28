@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import Cart from '../Cart/Cart';
 import './Navbar.css'
 import AdminPage from '../../Pages/AdminPage/AdminPage';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     return (
@@ -18,12 +19,16 @@ const Navbar = () => {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                            <Link to= "/main-page">
                             <li className="nav-item">
                                 <a className="nav-link active" aria-current="page" href="#">Home</a>
                             </li>
+                            </Link>
+                            <Link to= "/about-us">
                             <li className="nav-item">
                                 <a className="nav-link" href="#">About us</a>
                             </li>
+                            </Link>
                             <li className="nav-item">
                                 <a className="nav-link" href="#">Contacts</a>
                             </li>

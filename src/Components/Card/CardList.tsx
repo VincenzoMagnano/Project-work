@@ -27,6 +27,7 @@ const CardList = () => {
 
     fetchData();
   }, []);
+  
   return (
     <div className="card-list ">
       {cards.map(
