@@ -6,7 +6,11 @@ import { Pokemon } from '../../types/Pokemon';
 
 const CartInside = () => {
   const { cart, removeFromCart, handleCheckout, hystoryCart} = useAddToCart();
+  const [selectedHistoryIndex, setSelectedHistoryIndex] = useState<number | null>(null);
 
+  const handleHistoryItemClick = (index: number) => {
+    setSelectedHistoryIndex(index);
+  };
 
 
   ;
@@ -36,7 +40,11 @@ const CartInside = () => {
             </div>
             <button onClick={() => handleCheckout()} className='btn btn-primary'>Checkout</button>
               <div>
-                <h5>Hai acquistato {hystoryCart.length}</h5>
+              {hystoryCart.map((item, index) => (
+                <div key={index} onClick={() => handleHistoryItemClick(index)}>
+                  Hai fatto un acquisto di - {item}€ il {new Date().toLocaleDateString()} alle ore {new Date().toLocaleTimeString()}
+                </div>
+              ))}
               </div>
           </div>
         </div>
