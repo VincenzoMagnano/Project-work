@@ -18,7 +18,7 @@ const Card: FC<CardProps> = ({ pokemon }) => {
       <div className="card">
         <img src={pokemon?.images?.small} alt={pokemon.name} />
         <h3>{pokemon.name}</h3>
-        <p>{pokemon.id}€</p>
+        <p>1€</p>
         
         {
           cart.includes(pokemon) ? <p className="text-success">Added to Cart</p> : <p className="text-danger">Not Added to Cart</p>

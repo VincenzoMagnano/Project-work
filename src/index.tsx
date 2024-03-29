@@ -12,6 +12,7 @@ import CartInside from "./Components/CartInside/CartInside";
 import { AddToCartProvider } from "./Provider/AddToCartContext";
 import AdminPage from "./Pages/AdminPage/AdminPage";
 import AboutUs from "./Pages/AboutUs/AboutUs";
+import Contacts from "./Pages/Contacts/Contacts";
 
 
 const router = createBrowserRouter([
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
   {
     path:"/about-us",
     element: <AboutUs/>,
+  },
+  {
+    path:"/contacts",
+    element: <Contacts/>,
   }
 ]);
 

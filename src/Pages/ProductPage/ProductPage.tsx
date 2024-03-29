@@ -4,6 +4,7 @@ import CardList from '../../Components/Card/CardList'
 const ProductPage = () => {
   return (
     <>
+        
         <CardList />         
     </>
   )

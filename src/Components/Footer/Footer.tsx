@@ -4,7 +4,7 @@ import './Footer.css'
 const Footer = () => {
   return (
     <>
-      <div className='footer'>
+      <div className='footer fixed-bottom'>
         <div className='logo'>
           <img className='logofooter' src="https://cdn-icons-png.flaticon.com/128/361/361998.png" alt="" />
         </div>
