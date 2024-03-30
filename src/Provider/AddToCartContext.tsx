@@ -39,8 +39,6 @@ export const AddToCartProvider: FC<AddToCartProviderProps> = ({ children }) => {
 
 
   const handleCheckout = () => {
-    setCart([]);
-
     if (cart.length > 0) {
       setHystoryCart(prevHistory => [...prevHistory, cart.length]);
       setCart([]);

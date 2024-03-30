@@ -49,7 +49,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <AddToCartProvider>
-    <RouterProvider router={router} />
+     <RouterProvider router={router} />
     </AddToCartProvider>
   </React.StrictMode>
 );
